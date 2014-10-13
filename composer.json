@@ -1,0 +1,59 @@
+{
+    "authors": [
+        {
+            "email": "hswong3i@pantarei-design.com",
+            "homepage": "http://hswong3i.net",
+            "name": "Wong Hoi Sing Edison"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "AuthBucket\\Bundle\\PushBundle": ""
+        }
+    },
+    "description": "Symfony PushBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "2.x-dev",
+            "dev-master": "2.3.x-dev"
+        }
+    },
+    "homepage": "https://github.com/authbucket/push-symfony-bundle",
+    "keywords": [
+        "apns",
+        "gcm",
+        "notification",
+        "oauth2",
+        "push",
+        "symfony"
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "name": "authbucket/push-symfony-bundle",
+    "require": {
+        "authbucket/oauth2-php": "~2.3",
+        "authbucket/push-php": "~0.0",
+        "php": ">=5.3.9",
+        "symfony/framework-bundle": "~2.3",
+        "symfony/security-bundle": "~2.3"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "fabpot/php-cs-fixer": "@stable",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "phpunit/phpunit": "@stable",
+        "sami/sami": "@stable",
+        "satooshi/php-coveralls": "dev-master",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/symfony": "~2.3",
+        "twig/extensions": "~1.0"
+    },
+    "target-dir": "AuthBucket/Bundle/PushBundle",
+    "type": "symfony-bundle"
+}
