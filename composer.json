@@ -31,7 +31,7 @@
     "minimum-stability": "dev",
     "name": "authbucket/push-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "~2.3",
+        "authbucket/oauth2-symfony-bundle": "~2.3",
         "authbucket/push-php": "~0.0",
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
