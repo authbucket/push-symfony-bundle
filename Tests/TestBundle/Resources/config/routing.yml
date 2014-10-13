@@ -1,0 +1,15 @@
+demo:
+    prefix:    /
+    resource:   "@TestBundle/Resources/config/routing_demo.yml"
+
+push:
+    prefix:    /
+    resource:   "@TestBundle/Resources/config/routing_push.yml"
+
+index:
+    path:       /
+    defaults:   { _controller:TestBundle:Default:index }
+
+admin_refresh_database:
+    path:       /admin/refresh_database
+    defaults:   { _controller:TestBundle:Default:adminRefreshDatabase }
