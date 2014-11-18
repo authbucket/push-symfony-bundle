@@ -14,8 +14,8 @@
     "description": "Symfony PushBundle",
     "extra": {
         "branch-alias": {
-            "dev-develop": "2.x-dev",
-            "dev-master": "2.3.x-dev"
+            "dev-develop": "0.x-dev",
+            "dev-master": "0.0.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/push-symfony-bundle",
@@ -31,7 +31,7 @@
     "minimum-stability": "dev",
     "name": "authbucket/push-symfony-bundle",
     "require": {
-        "authbucket/oauth2-symfony-bundle": "~2.3",
+        "authbucket/oauth2-symfony-bundle": "~2.4",
         "authbucket/push-php": "~0.0",
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
@@ -41,6 +41,7 @@
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/orm": "~2.2,>=2.2.3",
+        "ext-pdo_sqlite": "*",
         "fabpot/php-cs-fixer": "@stable",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/phpunit": "@stable",
