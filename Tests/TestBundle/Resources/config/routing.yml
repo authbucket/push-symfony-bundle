@@ -2,6 +2,10 @@ demo:
     prefix:    /
     resource:   "@TestBundle/Resources/config/routing_demo.yml"
 
+oauth2:
+    prefix:    /
+    resource:   "@TestBundle/Resources/config/routing_oauth2.yml"
+
 push:
     prefix:    /
     resource:   "@TestBundle/Resources/config/routing_push.yml"
