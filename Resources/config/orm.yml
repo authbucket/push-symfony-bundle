@@ -1,0 +1,9 @@
+parameters:
+    authbucket_push.model: ~
+
+services:
+    authbucket_push.model_manager.factory:
+        class: AuthBucket\Bundle\PushBundle\Entity\ModelManagerFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "%authbucket_push.model%"

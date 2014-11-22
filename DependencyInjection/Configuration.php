@@ -31,21 +31,11 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('driver')->defaultValue('orm')->end()
-                ->scalarNode('user_provider')->defaultNull()->end()
+                ->scalarNode('driver')->defaultNull()->end()
                 ->arrayNode('model')
                     ->prototype('scalar')->end()
                 ->end()
-                ->arrayNode('response_handler')
-                    ->prototype('scalar')->end()
-                ->end()
-                ->arrayNode('grant_handler')
-                    ->prototype('scalar')->end()
-                ->end()
-                ->arrayNode('token_handler')
-                    ->prototype('scalar')->end()
-                ->end()
-                ->arrayNode('resource_handler')
+                ->arrayNode('service_handler')
                     ->prototype('scalar')->end()
                 ->end()
             ->end();

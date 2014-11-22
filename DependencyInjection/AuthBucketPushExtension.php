@@ -14,7 +14,6 @@ namespace AuthBucket\Bundle\PushBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -41,18 +40,11 @@ class AuthBucketPushExtension extends Extension
 
         $loader->load('services.yml');
 
-        $driver = $config['driver'] ?: 'in_memory';
-        if (in_array($driver, array('in_memory', 'orm'))) {
+        $driver = $config['driver'] ?: 'orm';
+        if (in_array($driver, array('orm'))) {
             $loader->load(sprintf('%s.yml', $driver));
         }
         unset($config['driver']);
-
-        $userProvider = $config['user_provider'] ?: null;
-        if ($userProvider) {
-            $container->getDefinition('authbucket_push.grant_handler.factory')
-                ->replaceArgument(6, new Reference($userProvider));
-        }
-        unset($config['user_provider']);
 
         foreach (array_filter($config) as $key => $value) {
             $container->setParameter('authbucket_push.'.$key, $value);

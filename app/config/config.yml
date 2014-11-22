@@ -50,3 +50,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+
+authbucket_push:
+    driver:         orm
+    model:
+        device:     AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Device
+        message:    AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Message
+        service:    AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Service
