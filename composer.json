@@ -32,7 +32,7 @@
     "name": "authbucket/push-symfony-bundle",
     "require": {
         "authbucket/oauth2-symfony-bundle": "~2.4",
-        "authbucket/push-php": "dev-master",
+        "authbucket/push-php": "dev-develop",
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"
