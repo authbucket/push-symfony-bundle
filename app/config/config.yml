@@ -1,0 +1,52 @@
+imports:
+    - { resource: security.yml }
+
+framework:
+    secret:          daeff86da898e9d9750a5415dc1d043b
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: [ 'twig' ]
+    default_locale:  en
+    trusted_proxies: ~
+    fragments:       ~
+    test: ~
+    session:
+        storage_id:  session.storage.mock_file
+    profiler:
+        enabled:     false
+    serializer:
+            enabled: true
+
+# Twig Configuration
+twig:
+    debug:            true
+    strict_variables: true
+
+services:
+    twig.extension.debug:
+        class: Twig_Extension_Debug
+        tags:
+            - { name: twig.extension }
+    custom_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
+        tags:
+            - { name: serializer.normalizer }
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+            - { name: serializer.normalizer }
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path:   "%kernel.cache_dir%/.ht.sqlite"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
