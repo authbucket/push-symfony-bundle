@@ -1,0 +1,37 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User:  plaintext
+
+    providers:
+        admin:
+            memory:
+                users:
+                    admin:          { roles: 'ROLE_ADMIN', password: secrete }
+
+    firewalls:
+        admin:
+            pattern:                ^/admin
+            http_basic:             ~
+            provider:               admin
+
+        dummy_oauth2_debug:
+            pattern:                ^/dummy/v1.0/oauth2/debug$
+            oauth2_resource:        ~
+
+        dummy:
+            pattern:                ^/dummy/v1.0
+            oauth2_resource:
+                resource_type:      debug_endpoint
+                scope:              ~
+                options:
+                    debug_endpoint: '/dummy/v1.0/oauth2/debug'
+                    cache:          false
+
+        api:
+            pattern:                ^/api/v1.0
+            oauth2_resource:
+                resource_type:      debug_endpoint
+                scope:              ~
+                options:
+                    debug_endpoint: 'http://oauth2-symfony-bundle.authbucket.com/api/v1.0/oauth2/debug'
+                    cache:          false

@@ -1,20 +1,9 @@
-resource:
-    path:       /resource
-    defaults:   { _controller: TestBundle:Resource:index }
+push:
+    path:       /push
+    defaults:   { _controller: TestBundle:Push:index }
     methods:    [ GET ]
 
-api_resource_model:
-    path:       /api/v1.0/resource/model
-    defaults:   { _controller: AuthBucketPushBundle:Push:debug }
-
-api_resource_debug_endpoint:
-    path:       /api/v1.0/resource/debug_endpoint
-    defaults:   { _controller: AuthBucketPushBundle:Push:debug }
-
-api_resource_debug_endpoint_cache:
-    path:       /api/v1.0/resource/debug_endpoint/cache
-    defaults:   { _controller: AuthBucketPushBundle:Push:debug }
-
-api_resource_debug_endpoint_invalid_options:
-    path:       /api/v1.0/resource/debug_endpoint/invalid_options
-    defaults:   { _controller: AuthBucketPushBundle:Push:debug }
+push_login:
+    path:       /push/login
+    defaults:   { _controller: TestBundle:Push:login }
+    methods:    [ GET ]
