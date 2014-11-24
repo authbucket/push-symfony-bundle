@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the authbucket/push-php package.
+ * This file is part of the authbucket/push-symfony-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
