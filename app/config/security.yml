@@ -16,7 +16,7 @@ security:
 
         dummy_oauth2_debug:
             pattern:                ^/dummy/v1.0/oauth2/debug$
-            oauth2_resource:        ~
+            anonymous:              ~
 
         dummy:
             pattern:                ^/dummy/v1.0

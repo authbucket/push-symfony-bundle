@@ -1,4 +1,0 @@
-dummy_oauth2_debug:
-    path:           /dummy/v1.0/oauth2/debug
-    defaults:       { _controller:TestBundle:OAuth2:debug }
-    methods:        [ GET|POST ]

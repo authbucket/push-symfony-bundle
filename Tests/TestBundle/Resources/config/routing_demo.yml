@@ -1,4 +1,0 @@
-demo:
-    path:       /demo
-    defaults:   { _controller: TestBundle:Demo:index }
-    methods:    [ GET ]
