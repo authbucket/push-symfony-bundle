@@ -28,11 +28,10 @@
         "symfony"
     ],
     "license": "MIT",
-    "minimum-stability": "dev",
     "name": "authbucket/push-symfony-bundle",
     "require": {
         "authbucket/oauth2-symfony-bundle": "~2.4",
-        "authbucket/push-php": "dev-develop",
+        "authbucket/push-php": "0.0.x-dev",
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"
@@ -40,7 +39,7 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/orm": "~2.2",
         "ext-openssl": "*",
         "ext-pdo_sqlite": "*",
         "fabpot/php-cs-fixer": "@stable",
