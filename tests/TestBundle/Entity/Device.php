@@ -11,19 +11,19 @@
 
 namespace AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity;
 
-use AuthBucket\Bundle\PushBundle\Entity\Service as AbstractService;
+use AuthBucket\Bundle\PushBundle\Entity\Device as AbstractDevice;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Service
+ * Device.
  *
- * @ORM\Table(name="authbucket_push_service")
- * @ORM\Entity(repositoryClass="AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\ServiceRepository")
+ * @ORM\Table(name="authbucket_push_device")
+ * @ORM\Entity(repositoryClass="AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\DeviceRepository")
  */
-class Service extends AbstractService
+class Device extends AbstractDevice
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Service extends AbstractService
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

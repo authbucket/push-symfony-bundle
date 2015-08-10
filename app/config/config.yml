@@ -2,7 +2,7 @@ imports:
     - { resource: security.yml }
 
 framework:
-    secret:          daeff86da898e9d9750a5415dc1d043b
+    secret:          03f8297312704de721b9f00934b597dd
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
@@ -19,8 +19,6 @@ framework:
         storage_id:  session.storage.mock_file
     profiler:
         enabled:     false
-    serializer:
-            enabled: true
 
 # Twig Configuration
 twig:
@@ -32,14 +30,6 @@ services:
         class: Twig_Extension_Debug
         tags:
             - { name: twig.extension }
-    custom_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
-        tags:
-            - { name: serializer.normalizer }
-    get_set_method_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
-        tags:
-            - { name: serializer.normalizer }
 
 # Doctrine Configuration
 doctrine:
@@ -51,9 +41,19 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            bubble: false
+
 authbucket_push:
-    driver:         orm
+    driver:                 orm
     model:
-        device:     AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Device
-        message:    AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Message
-        service:    AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Service
+        device:             AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Device
+        message:            AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Message
+        service:            AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\Service

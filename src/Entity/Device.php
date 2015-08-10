@@ -15,7 +15,7 @@ use AuthBucket\Push\Model\DeviceInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Device
+ * Device.
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\PushBundle\Entity\DeviceRepository")
  */
@@ -50,7 +50,7 @@ abstract class Device implements DeviceInterface
     protected $scope;
 
     /**
-     * Set deviceToken
+     * Set deviceToken.
      *
      * @param string $deviceToken
      *
@@ -64,7 +64,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Get deviceToken
+     * Get deviceToken.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Set serviceId
+     * Set serviceId.
      *
      * @param string $serviceId
      *
@@ -88,7 +88,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Get serviceId
+     * Get serviceId.
      *
      * @return string
      */
@@ -98,7 +98,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
      *
@@ -112,7 +112,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Get username
+     * Get username.
      *
      * @return string
      */
@@ -122,7 +122,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Set scope
+     * Set scope.
      *
      * @param array $scope
      *
@@ -136,7 +136,7 @@ abstract class Device implements DeviceInterface
     }
 
     /**
-     * Get scope
+     * Get scope.
      *
      * @return array
      */

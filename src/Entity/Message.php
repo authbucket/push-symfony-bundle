@@ -15,7 +15,7 @@ use AuthBucket\Push\Model\MessageInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Message
+ * Message.
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\PushBundle\Entity\MessageRepository")
  */
@@ -57,7 +57,7 @@ abstract class Message implements MessageInterface
     protected $payload;
 
     /**
-     * Set messageId
+     * Set messageId.
      *
      * @param string $messageId
      *
@@ -71,7 +71,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Get messageId
+     * Get messageId.
      *
      * @return string
      */
@@ -81,7 +81,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Set clientId
+     * Set clientId.
      *
      * @param string $clientId
      *
@@ -95,7 +95,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Get clientId
+     * Get clientId.
      *
      * @return string
      */
@@ -105,7 +105,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
      *
@@ -119,7 +119,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Get username
+     * Get username.
      *
      * @return string
      */
@@ -129,7 +129,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Set scope
+     * Set scope.
      *
      * @param array $scope
      *
@@ -143,7 +143,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Get scope
+     * Get scope.
      *
      * @return array
      */
@@ -153,7 +153,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Set payload
+     * Set payload.
      *
      * @param array $payload
      *
@@ -167,7 +167,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Get payload
+     * Get payload.
      *
      * @return array
      */

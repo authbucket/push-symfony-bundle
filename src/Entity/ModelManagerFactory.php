@@ -27,7 +27,7 @@ class ModelManagerFactory implements ModelManagerFactoryInterface
 
     public function __construct(EntityManager $em, array $models = array())
     {
-        $mamangers = array();
+        $managers = array();
         foreach ($models as $type => $model) {
             $manager = $em->getRepository($model);
             if (!$manager instanceof ModelManagerInterface) {

@@ -1,5 +1,5 @@
 authbucketpushbundle:
-    prefix:     /
+    prefix:     /api/push
     resource:   "@AuthBucketPushBundle/Resources/config/routing.yml"
 
 testbundle:

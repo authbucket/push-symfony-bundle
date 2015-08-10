@@ -7,15 +7,20 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "AuthBucket\\Bundle\\PushBundle": ""
+        "psr-4": {
+            "AuthBucket\\Bundle\\PushBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AuthBucket\\Bundle\\PushBundle\\": "tests/"
         }
     },
     "description": "Symfony PushBundle",
     "extra": {
         "branch-alias": {
-            "dev-develop": "0.x-dev",
-            "dev-master": "0.0.x-dev"
+            "dev-develop": "1.x-dev",
+            "dev-master": "1.0.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/push-symfony-bundle",
@@ -30,31 +35,37 @@
     "license": "MIT",
     "name": "authbucket/push-symfony-bundle",
     "require": {
-        "authbucket/oauth2-symfony-bundle": "~2.4",
-        "authbucket/push-php": "0.0.x-dev",
-        "php": ">=5.3.9",
-        "symfony/framework-bundle": "~2.3",
-        "symfony/security-bundle": "~2.3"
+        "authbucket/oauth2-symfony-bundle": "~3.0",
+        "authbucket/push-php": "1.x-dev",
+        "php": ">=5.5.9",
+        "psr/log": "~1.0",
+        "symfony/framework-bundle": "~2.7",
+        "symfony/monolog-bundle": "~2.4",
+        "symfony/security-bundle": "~2.7"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-bundle": "~1.4",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/orm": "~2.2",
-        "ext-openssl": "*",
         "ext-pdo_sqlite": "*",
         "fabpot/php-cs-fixer": "@stable",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/phpunit": "@stable",
         "sami/sami": "@stable",
         "satooshi/php-coveralls": "dev-master",
-        "sensio/distribution-bundle": "~3.0",
+        "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0",
         "symfony/assetic-bundle": "~2.3",
-        "symfony/monolog-bundle": "~2.4",
+        "symfony/phpunit-bridge": "~2.7",
         "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/symfony": "~2.3",
+        "symfony/symfony": "~2.7",
         "twig/extensions": "~1.0"
     },
-    "target-dir": "AuthBucket/Bundle/PushBundle",
+    "scripts": {
+        "coveralls": "coveralls -v; exit 0",
+        "php-cs-fixer": "php-cs-fixer fix --config-file .php-cs-fixer.php; exit 0",
+        "phpunit": "phpunit -c phpunit.xml.dist; exit 0",
+        "sami": "sami.php update .sami.php; exit 0"
+    },
     "type": "symfony-bundle"
 }

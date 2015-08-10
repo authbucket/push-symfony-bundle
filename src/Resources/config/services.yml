@@ -6,8 +6,10 @@ parameters:
 services:
     authbucket_push.exception_listener:
         class: AuthBucket\Push\EventListener\ExceptionListener
+        arguments:
+            - "@logger"
         tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -8 }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -2 }
 
     authbucket_push.service_handler.factory:
         class: AuthBucket\Push\ServiceType\ServiceTypeHandlerFactory
@@ -24,24 +26,3 @@ services:
             - "@validator"
             - "@authbucket_push.model_manager.factory"
             - "@authbucket_push.service_handler.factory"
-
-    authbucket_push.service_controller:
-        class: AuthBucket\Push\Controller\ServiceController
-        arguments:
-            - "@validator"
-            - "@serializer"
-            - "@authbucket_push.model_manager.factory"
-
-    authbucket_push.device_controller:
-        class: AuthBucket\Push\Controller\DeviceController
-        arguments:
-            - "@validator"
-            - "@serializer"
-            - "@authbucket_push.model_manager.factory"
-
-    authbucket_push.message_controller:
-        class: AuthBucket\Push\Controller\MessageController
-        arguments:
-            - "@validator"
-            - "@serializer"
-            - "@authbucket_push.model_manager.factory"

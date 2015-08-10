@@ -1,0 +1,14 @@
+api_push_register:
+    path:           /register
+    defaults:       { _controller: AuthBucketPushBundle:Push:register }
+    methods:        [ POST ]
+
+api_push_unregister:
+    path:           /unregister
+    defaults:       { _controller: AuthBucketPushBundle:Push:unregister }
+    methods:        [ POST ]
+
+api_push_send:
+    path:           /send
+    defaults:       { _controller: AuthBucketPushBundle:Push:send }
+    methods:        [ POST ]

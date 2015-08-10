@@ -15,7 +15,7 @@ use AuthBucket\Push\Model\ServiceInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Service
+ * Service.
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\PushBundle\Entity\ServiceRepository")
  */
@@ -50,7 +50,7 @@ class Service implements ServiceInterface
     protected $option;
 
     /**
-     * Set serviceId
+     * Set serviceId.
      *
      * @param string $serviceId
      *
@@ -64,7 +64,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Get serviceId
+     * Get serviceId.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Set serviceType
+     * Set serviceType.
      *
      * @param string $serviceType
      *
@@ -88,7 +88,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Get serviceType
+     * Get serviceType.
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Set clientId
+     * Set clientId.
      *
      * @param string $clientId
      *
@@ -112,7 +112,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Get clientId
+     * Get clientId.
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Set option
+     * Set option.
      *
      * @param array $option
      *
@@ -136,7 +136,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * Get option
+     * Get option.
      *
      * @return array
      */

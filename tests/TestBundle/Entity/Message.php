@@ -15,7 +15,7 @@ use AuthBucket\Bundle\PushBundle\Entity\Message as AbstractMessage;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Message
+ * Message.
  *
  * @ORM\Table(name="authbucket_push_message")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\PushBundle\Tests\TestBundle\Entity\MessageRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Message extends AbstractMessage
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Message extends AbstractMessage
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
