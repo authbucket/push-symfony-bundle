@@ -36,11 +36,11 @@ class PushController extends Controller
         $_username = $session->get('_username');
         $_password = $session->get('_password');
 
-        return $this->render('TestBundle:push:login.html.twig', array(
+        return $this->render('TestBundle:push:login.html.twig', [
             'error' => $error,
             '_username' => $_username,
             '_password' => $_password,
-        ));
+        ]);
     }
 
     public function authorizeAction(Request $request)
@@ -70,10 +70,10 @@ class PushController extends Controller
             $authorizeManager = $modelManagerFactory->getModelManager('authorize');
 
             // Update existing authorization if possible, else create new.
-            $authorize = $authorizeManager->readModelOneBy(array(
+            $authorize = $authorizeManager->readModelOneBy([
                 'clientId' => $clientId,
                 'username' => $username,
-            ));
+            ]);
             if ($authorize === null) {
                 $class = $authorizeManager->getClassName();
                 $authorize = new $class();
@@ -95,12 +95,12 @@ class PushController extends Controller
         // Display the form.
         $authorizationRequest = $request->query->all();
 
-        return $this->render('TestBundle:push:authorize.html.twig', array(
+        return $this->render('TestBundle:push:authorize.html.twig', [
             'client_id' => $clientId,
             'username' => $username,
             'scopes' => $scope,
             'form' => $form->createView(),
             'authorization_request' => $authorizationRequest,
-        ));
+        ]);
     }
 }

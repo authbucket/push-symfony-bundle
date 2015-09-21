@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\PushBundle\Tests\ServiceType;
 
-use AuthBucket\Push\ServiceType\ServiceTypeHandlerFactory;
 use AuthBucket\Bundle\PushBundle\Tests\WebTestCase;
+use AuthBucket\Push\ServiceType\ServiceTypeHandlerFactory;
 
 class ServiceTypeHandlerFactoryTest extends WebTestCase
 {
@@ -21,7 +21,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testNonExistsServiceTypeHandler()
     {
-        $classes = array('foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\NonExistsServiceTypeHandler');
+        $classes = ['foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\NonExistsServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
             $this->get('security.context'),
             $this->get('validator'),
@@ -35,7 +35,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testBadAddServiceTypeHandler()
     {
-        $classes = array('foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\FooServiceTypeHandler');
+        $classes = ['foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\FooServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
             $this->get('security.context'),
             $this->get('validator'),
@@ -49,7 +49,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testBadGetServiceTypeHandler()
     {
-        $classes = array('bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler');
+        $classes = ['bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
             $this->get('security.context'),
             $this->get('validator'),
@@ -61,7 +61,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
 
     public function testGoodGetServiceTypeHandler()
     {
-        $classes = array('bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler');
+        $classes = ['bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
             $this->get('security.context'),
             $this->get('validator'),
@@ -69,6 +69,6 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
             $classes
         );
         $handler = $factory->getServiceTypeHandler('bar');
-        $this->assertEquals($factory->getServiceTypeHandlers(), $classes);
+        $this->assertSame($factory->getServiceTypeHandlers(), $classes);
     }
 }

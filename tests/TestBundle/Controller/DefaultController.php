@@ -42,7 +42,7 @@ class DefaultController extends Controller
             return 1;
         }
 
-        $classes = array();
+        $classes = [];
         foreach ($this->container->getParameter('authbucket_push.model') as $class) {
             $classes[] = $em->getClassMetadata($class);
         }

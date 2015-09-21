@@ -41,7 +41,7 @@ class AuthBucketPushExtension extends Extension
         $loader->load('services.yml');
 
         $driver = $config['driver'] ?: 'orm';
-        if (in_array($driver, array('orm'))) {
+        if (in_array($driver, ['orm'])) {
             $loader->load(sprintf('%s.yml', $driver));
         }
         unset($config['driver']);

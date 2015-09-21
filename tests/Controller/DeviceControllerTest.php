@@ -19,227 +19,227 @@ class DeviceControllerTest extends WebTestCase
     public function testCreateActionJson()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'json');
+            ],
+        ], 'json');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.json', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.json', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
     }
 
     public function testCreateActionXml()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'xml');
+            ],
+        ], 'xml');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
     }
 
     public function testReadActionJson()
     {
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
+        ];
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/dummy/v1.0/device/1.json', array(), array(), $server);
+        $crawler = $client->request('GET', '/dummy/v1.0/device/1.json', [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals('0027956241e3ca5090de548fe468334d', $response['deviceToken']);
+        $this->assertSame('0027956241e3ca5090de548fe468334d', $response['deviceToken']);
     }
 
     public function testReadActionXml()
     {
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
+        ];
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/dummy/v1.0/device/1.xml', array(), array(), $server);
+        $crawler = $client->request('GET', '/dummy/v1.0/device/1.xml', [], [], $server);
         $response = simplexml_load_string($client->getResponse()->getContent());
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals('0027956241e3ca5090de548fe468334d', $response['deviceToken']);
+        $this->assertSame('0027956241e3ca5090de548fe468334d', $response['deviceToken']);
     }
 
     public function testUpdateActionJson()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'json');
+            ],
+        ], 'json');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.json', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.json', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $id = $response['id'];
         $deviceTokenUpdated = md5(uniqid(null, true));
-        $content = $this->get('serializer')->encode(array('deviceToken' => $deviceTokenUpdated), 'json');
+        $content = $this->get('serializer')->encode(['deviceToken' => $deviceTokenUpdated], 'json');
         $client = $this->createClient();
-        $crawler = $client->request('PUT', "/dummy/v1.0/device/${id}.json", array(), array(), $server, $content);
+        $crawler = $client->request('PUT', "/dummy/v1.0/device/${id}.json", [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals($deviceTokenUpdated, $response['deviceToken']);
+        $this->assertSame($deviceTokenUpdated, $response['deviceToken']);
 
         $client = $this->createClient();
-        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.json", array(), array(), $server);
+        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.json", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals($deviceTokenUpdated, $response['deviceToken']);
+        $this->assertSame($deviceTokenUpdated, $response['deviceToken']);
     }
 
     public function testUpdateActionXml()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'xml');
+            ],
+        ], 'xml');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $id = $response['id'];
         $deviceTokenUpdated = md5(uniqid(null, true));
-        $content = $this->get('serializer')->encode(array('deviceToken' => $deviceTokenUpdated), 'xml');
+        $content = $this->get('serializer')->encode(['deviceToken' => $deviceTokenUpdated], 'xml');
         $client = $this->createClient();
-        $crawler = $client->request('PUT', "/dummy/v1.0/device/${id}.xml", array(), array(), $server, $content);
+        $crawler = $client->request('PUT', "/dummy/v1.0/device/${id}.xml", [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals($deviceTokenUpdated, $response['deviceToken']);
+        $this->assertSame($deviceTokenUpdated, $response['deviceToken']);
 
         $client = $this->createClient();
-        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.xml", array(), array(), $server);
+        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.xml", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals($deviceTokenUpdated, $response['deviceToken']);
+        $this->assertSame($deviceTokenUpdated, $response['deviceToken']);
     }
 
     public function testDeleteActionJson()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'json');
+            ],
+        ], 'json');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.json', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.json', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $id = $response['id'];
         $client = $this->createClient();
-        $crawler = $client->request('DELETE', "/dummy/v1.0/device/${id}.json", array(), array(), $server);
+        $crawler = $client->request('DELETE', "/dummy/v1.0/device/${id}.json", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals(null, $response['id']);
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame(null, $response['id']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $client = $this->createClient();
-        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.json", array(), array(), $server);
+        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.json", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals(null, $response);
+        $this->assertSame(null, $response);
     }
 
     public function testDeleteActionXml()
     {
         $deviceToken = md5(uniqid(null, true));
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
-        $content = $this->get('serializer')->encode(array(
+        ];
+        $content = $this->get('serializer')->encode([
             'deviceToken' => $deviceToken,
             'serviceId' => 'f2ee1d163e9c9b633efca95fb9733f35',
             'username' => 'demousername1',
-            'scope' => array(
+            'scope' => [
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ),
-        ), 'xml');
+            ],
+        ], 'xml');
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', array(), array(), $server, $content);
+        $crawler = $client->request('POST', '/dummy/v1.0/device.xml', [], [], $server, $content);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $id = $response['id'];
         $client = $this->createClient();
-        $crawler = $client->request('DELETE', "/dummy/v1.0/device/${id}.xml", array(), array(), $server);
+        $crawler = $client->request('DELETE', "/dummy/v1.0/device/${id}.xml", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals(null, $response['id']);
-        $this->assertEquals($deviceToken, $response['deviceToken']);
+        $this->assertSame(null, $response['id']);
+        $this->assertSame($deviceToken, $response['deviceToken']);
 
         $client = $this->createClient();
-        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.xml", array(), array(), $server);
+        $crawler = $client->request('GET', "/dummy/v1.0/device/${id}.xml", [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals(null, $response);
+        $this->assertSame(null, $response);
     }
 
     public function testListActionJson()
     {
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
+        ];
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/dummy/v1.0/device.json', array(), array(), $server);
+        $crawler = $client->request('GET', '/dummy/v1.0/device.json', [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'json');
-        $this->assertEquals('0027956241e3ca5090de548fe468334d', $response[0]['deviceToken']);
+        $this->assertSame('0027956241e3ca5090de548fe468334d', $response[0]['deviceToken']);
     }
 
     public function testListActionXml()
     {
-        $server = array(
+        $server = [
             'HTTP_Authorization' => 'Bearer 18cdaa6481c0d5f323351ea1029fc065',
-        );
+        ];
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/dummy/v1.0/device.xml', array(), array(), $server);
+        $crawler = $client->request('GET', '/dummy/v1.0/device.xml', [], [], $server);
         $response = $this->get('serializer')->decode($client->getResponse()->getContent(), 'xml');
-        $this->assertEquals('0027956241e3ca5090de548fe468334d', $response[0]['deviceToken']);
+        $this->assertSame('0027956241e3ca5090de548fe468334d', $response[0]['deviceToken']);
     }
 }

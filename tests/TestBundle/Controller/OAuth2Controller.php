@@ -28,7 +28,7 @@ class OAuth2Controller extends Controller
             ->setClientId('6b44c21ef7bc8ca7380bb5b8276b3f97')
             ->setUsername('')
             ->setExpires(new \DateTime('+10 years'))
-            ->setScope(array());
+            ->setScope([]);
         $accessTokenManager->createModel($model);
 
         $tokenHeaders = $request->headers->get('Authorization', false);
@@ -43,22 +43,22 @@ class OAuth2Controller extends Controller
         $accessToken = $tokenHeaders
             ?: $tokenRequest
             ?: $tokenQuery;
-        $accessTokenAuthenticated = $accessTokenManager->readModelOneBy(array(
+        $accessTokenAuthenticated = $accessTokenManager->readModelOneBy([
             'accessToken' => $accessToken,
-        ));
+        ]);
 
-        $parameters = array(
+        $parameters = [
             'access_token' => $accessTokenAuthenticated->getAccessToken(),
             'token_type' => $accessTokenAuthenticated->getTokenType(),
             'client_id' => $accessTokenAuthenticated->getClientId(),
             'username' => $accessTokenAuthenticated->getUsername(),
             'expires' => $accessTokenAuthenticated->getExpires()->getTimestamp(),
             'scope' => $accessTokenAuthenticated->getScope(),
-        );
+        ];
 
-        return JsonResponse::create($parameters, 200, array(
+        return JsonResponse::create($parameters, 200, [
             'Cache-Control' => 'no-store',
             'Pragma' => 'no-cache',
-        ));
+        ]);
     }
 }
