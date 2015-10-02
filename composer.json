@@ -13,7 +13,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AuthBucket\\Bundle\\PushBundle\\": "tests/"
+            "AuthBucket\\Bundle\\PushBundle\\Tests\\": "tests/"
         }
     },
     "description": "Symfony PushBundle",
@@ -29,6 +29,10 @@
         "gcm",
         "notification",
         "oauth2",
+        "psr-1",
+        "psr-2",
+        "psr-3",
+        "psr-4",
         "push",
         "symfony"
     ],
@@ -36,9 +40,8 @@
     "name": "authbucket/push-symfony-bundle",
     "require": {
         "authbucket/oauth2-symfony-bundle": "~3.0",
-        "authbucket/push-php": "1.x-dev",
+        "authbucket/push-php": "dev-develop",
         "php": ">=5.5.9",
-        "psr/log": "~1.0",
         "symfony/framework-bundle": "~2.7",
         "symfony/monolog-bundle": "~2.4",
         "symfony/security-bundle": "~2.7"

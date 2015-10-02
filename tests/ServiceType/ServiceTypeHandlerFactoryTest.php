@@ -23,7 +23,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\NonExistsServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_push.model_manager.factory'),
             $classes
@@ -37,7 +37,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\FooServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_push.model_manager.factory'),
             $classes
@@ -51,7 +51,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_push.model_manager.factory'),
             $classes
@@ -63,7 +63,7 @@ class ServiceTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\PushBundle\\Tests\\ServiceType\\BarServiceTypeHandler'];
         $factory = new ServiceTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_push.model_manager.factory'),
             $classes

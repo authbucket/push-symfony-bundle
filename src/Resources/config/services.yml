@@ -14,7 +14,7 @@ services:
     authbucket_push.service_handler.factory:
         class: AuthBucket\Push\ServiceType\ServiceTypeHandlerFactory
         arguments:
-            - "@security.context"
+            - "@security.token_storage"
             - "@validator"
             - "@authbucket_push.model_manager.factory"
             - "%authbucket_push.service_handler%"
@@ -22,7 +22,7 @@ services:
     authbucket_push.push_controller:
         class: AuthBucket\Push\Controller\PushController
         arguments:
-            - "@security.context"
+            - "@security.token_storage"
             - "@validator"
             - "@authbucket_push.model_manager.factory"
             - "@authbucket_push.service_handler.factory"

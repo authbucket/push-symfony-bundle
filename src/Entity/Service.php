@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\PushBundle\Entity\ServiceRepository")
  */
-class Service implements ServiceInterface
+abstract class Service implements ServiceInterface
 {
     /**
      * @var string
