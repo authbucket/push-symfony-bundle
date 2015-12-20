@@ -8,23 +8,19 @@ $iterator = Finder::create()
     ->files()
     ->name('*.php')
     ->exclude('Resources')
-    ->exclude('Tests')
-    ->exclude('app')
-    ->exclude('build')
-    ->exclude('vendor')
-    ->in($dir = '.');
+    ->in($dir = 'src');
 
 $versions = GitVersionCollection::create($dir)
     ->add('develop', 'develop branch')
     ->add('master', 'master branch')
-    ->addFromTags('*');
+    ->addFromTags('1.*');
 
-return new Sami($iterator, array(
-    'theme' => 'enhanced',
+return new Sami($iterator, [
+    'theme' => 'default',
     'versions' => $versions,
-    'title' => 'AuthBucket\Bundle\OAuth2Bundle API',
-    'build_dir' => __DIR__ . '/build/sami/%version%',
-    'cache_dir' => __DIR__ . '/build/cache/sami/%version%',
+    'title' => 'AuthBucket\Bundle\PushBundle API',
+    'build_dir' => __DIR__.'/build/sami/%version%',
+    'cache_dir' => __DIR__.'/build/cache/sami/%version%',
     'include_parent_data' => false,
     'default_opened_level' => 3,
-));
+]);

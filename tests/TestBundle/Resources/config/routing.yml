@@ -1,0 +1,19 @@
+index:
+    path:           /
+    defaults:       { _controller: TestBundle:Default:index }
+    methods:        [ GET ]
+
+admin_refresh_database:
+    path:           /admin/refresh_database
+    defaults:       { _controller: TestBundle:Default:adminRefreshDatabase }
+    methods:        [ GET ]
+
+getting-started:
+    path:           /getting-started
+    defaults:       { _controller: TestBundle:Default:gettingStartedIndex }
+    methods:        [ GET ]
+
+demo:
+    path:           /demo
+    defaults:       { _controller: TestBundle:Demo:index }
+    methods:        [ GET ]
